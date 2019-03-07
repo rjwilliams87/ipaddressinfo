@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchBox.css';
 
 class SearchBox extends React.Component {
   state = {
@@ -20,15 +21,24 @@ class SearchBox extends React.Component {
     const { userInput } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <legend>Enter IP Address</legend>
-          <input
-            type="text"
-            placeholder="enter domain name or ip address"
-            value={userInput}
-            onChange={this.handleInputChange}
-          />
-          <button type="submit">Search</button>
+        <form className="search-form" onSubmit={this.handleSubmit}>
+          <div className="search-form__top">
+            <legend className="search-form__legend">
+              Enter IP Address or Domain Name
+            </legend>
+          </div>
+          <div className="flex-column">
+            <input
+              className="search-form__input"
+              type="text"
+              placeholder="domain or ip here"
+              value={userInput}
+              onChange={this.handleInputChange}
+            />
+            <button type="submit" className="search-form__btn">
+              Search
+            </button>
+          </div>
         </form>
       </div>
     );

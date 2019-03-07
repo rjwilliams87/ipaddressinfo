@@ -1,0 +1,12 @@
+.results__container {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.error {
+  text-align: center;
+}
+
+.error > p {
+  font-size: 1.5em;
+}
