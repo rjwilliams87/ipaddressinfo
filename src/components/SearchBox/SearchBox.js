@@ -13,6 +13,7 @@ class SearchBox extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.handleUserSubmit(this.state.userInput);
   };
 
   render() {
