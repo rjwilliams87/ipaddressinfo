@@ -4,7 +4,6 @@
   "description": "An application to look up info about ip address",
   "private": true,
   "author": "Ryan Williams <ryanjacobwilliams@gmail.com> (http://www.ryanjwilliams.io/)",
-  "main": "",
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
