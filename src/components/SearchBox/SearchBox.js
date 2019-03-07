@@ -11,11 +11,15 @@ class SearchBox extends React.Component {
     });
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+  };
+
   render() {
     const { userInput } = this.state;
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <legend>Enter IP Address</legend>
           <input
             type="text"
