@@ -13,6 +13,9 @@
 
 # infastructure
 /infastructure
+/infastructure/terraform.tfstate
+/infastructure/terraform.tfstate.backup
+/infastructure/.terraform
 
 # misc
 .DS_Store

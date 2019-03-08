@@ -6,10 +6,10 @@ variable "bucket_name" {
     default = "ipaddressinfo.com"
 }
 
-variable "aws_acess_key" {
+variable "aws_access_key" {
     description = "key here"
 }
 
 variable "aws_secret_key" {
-    description = "key_here"
+    description = "secret key here"
 }
