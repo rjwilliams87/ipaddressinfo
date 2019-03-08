@@ -10,3 +10,38 @@
 .error > p {
   font-size: 1.5em;
 }
+
+.results__header {
+  text-align: center;
+  font-size: 1.75em;
+}
+
+.flex-container--row {
+  width: 80%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.col {
+  width: 30%;
+}
+
+.col__header {
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: #11a8ab;
+}
+
+ul {
+  list-style: none;
+  padding-top: 3px;
+}
+
+li {
+  padding-top: 3px;
+}
+
+.bold {
+  font-weight: 650;
+}

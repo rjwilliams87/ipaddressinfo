@@ -28,35 +28,59 @@ const Results = props => {
 
   return (
     <div className="results__container">
-      <div>
-        <h2>{registryData.domainName}</h2>
+      <h2 className="results__header">
+        showing results for {registryData.domainName}
+      </h2>
+      <div className="flex-container--row">
         {registrant ? (
-          <div>
-            <h3>Registrant Info</h3>
+          <div className="col">
+            <h3 className="col__header">Registrant Info</h3>
             <ul>
-              <li>Company: {registrant.organization}</li>
-              <li>Coutnry: {registrant.country}</li>
+              <li>
+                <span className="bold">Company:</span> {registrant.organization}
+              </li>
+              <li>
+                <span className="bold">Coutnry:</span> {registrant.country}
+              </li>
             </ul>
           </div>
         ) : null}
         {registryData ? (
-          <div>
-            <h3>Registry Data</h3>
+          <div className="col">
+            <h3 className="col__header">Registry Data</h3>
             <ul>
-              <li>Registrar name: {registrarName}</li>
-              <li>Created: {registryData.createdDate}</li>
-              <li>Updated: {registryData.updatedDate}</li>
-              <li>Expires: {registryData.expiresDate}</li>
+              <li>
+                <span className="bold">Registrar:</span> {registrarName}
+              </li>
+              <li>
+                <span className="bold">Created:</span>{' '}
+                {registryData.createdDate.replace(/T.*$/, '')}
+              </li>
+              <li>
+                <span className="bold">Updated:</span>{' '}
+                {registryData.updatedDate.replace(/T.*$/, '')}
+              </li>
+              <li>
+                <span className="bold">Expires:</span>{' '}
+                {registryData.expiresDate.replace(/T.*$/, '')}
+              </li>
             </ul>
           </div>
         ) : null}
         {technicalContact ? (
-          <div>
-            <h3>Technical Contact</h3>
+          <div className="col">
+            <h3 className="col__header">Technical Contact</h3>
             <ul>
-              <li>Organization: {technicalContact.organization}</li>
-              <li>Contact: {technicalContact.name}</li>
-              <li>Email: {technicalContact.email}</li>
+              <li>
+                <span className="bold">Organization:</span>{' '}
+                {technicalContact.organization}
+              </li>
+              <li>
+                <span className="bold">Contact:</span> {technicalContact.name}
+              </li>
+              <li>
+                <span className="bold">Email:</span> {technicalContact.email}
+              </li>
             </ul>
           </div>
         ) : null}
