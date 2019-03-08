@@ -7,7 +7,7 @@ variable "bucket_name" {
 }
 
 variable "aws_acess_key" {
-    description = "key_here"
+    description = "aws key here"
 }
 
 variable "aws_secret_key" {
