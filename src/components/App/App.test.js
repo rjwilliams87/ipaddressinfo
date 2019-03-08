@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import App from './App';
 import fetchIpData from '../../utils/api';
 
-jest.mock('../../utils/api', data => jest.fn(() => Promise.resolve(data)));
+jest.mock('../../utils/api', () => jest.fn(() => Promise.resolve()));
 
 // const flushPromise = () => {
 //   return new Promise(resolve => {
@@ -12,7 +12,7 @@ jest.mock('../../utils/api', data => jest.fn(() => Promise.resolve(data)));
 // };
 
 const fakeData = {
-  json: {
+  data: {
     WhoisData: {
       registryData: {
         name: 'foo',
@@ -32,5 +32,13 @@ describe('<App />', () => {
     wrapper.instance().handleUserSubmit(fakeData);
     expect(fetchIpData).toHaveBeenCalledTimes(1);
     expect(fetchIpData).toHaveBeenCalledWith(fakeData);
+  });
+
+  it('should clear state when clearResults is called', () => {
+    const wrapper = shallow(<App />);
+    wrapper.setState({ data: fakeData });
+    expect(wrapper.state().data).toEqual(fakeData);
+    wrapper.instance().clearResults();
+    expect(wrapper.state().data).toEqual(undefined);
   });
 });
