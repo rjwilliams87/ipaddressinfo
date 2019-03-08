@@ -23,8 +23,11 @@ const Results = props => {
   } = data.done.json.WhoisRecord;
 
   // not every domain comes back with completed info so
-  // below I use I check for that with 3 ternary operators
+  // below I check for that with ternary operators
   // if nothing comes back I just return null
+
+  // TODO: normalize responses to those that all domains have
+  //  to cut down on bloated/nested logic
 
   return (
     <div className="results__container">
@@ -37,10 +40,12 @@ const Results = props => {
             <h3 className="col__header">Registrant Info</h3>
             <ul>
               <li>
-                <span className="bold">Company:</span> {registrant.organization}
+                <span className="bold">Company:</span>{' '}
+                {registrant.organization ? registrant.organization : null}
               </li>
               <li>
-                <span className="bold">Coutnry:</span> {registrant.country}
+                <span className="bold">Coutnry:</span>{' '}
+                {registrant.country ? registrant.country : null}
               </li>
             </ul>
           </div>
@@ -53,16 +58,22 @@ const Results = props => {
                 <span className="bold">Registrar:</span> {registrarName}
               </li>
               <li>
-                <span className="bold">Created:</span>{' '}
-                {registryData.createdDate.replace(/T.*$/, '')}
+                <span className="bold">Created:</span>
+                {registryData.createdDate
+                  ? registryData.createdDate.replace(/T.*$/, '')
+                  : null}
               </li>
               <li>
                 <span className="bold">Updated:</span>{' '}
-                {registryData.updatedDate.replace(/T.*$/, '')}
+                {registryData.updatedDate
+                  ? registryData.updatedDate.replace(/T.*$/, '')
+                  : null}
               </li>
               <li>
                 <span className="bold">Expires:</span>{' '}
-                {registryData.expiresDate.replace(/T.*$/, '')}
+                {registryData.expiresData
+                  ? registryData.expiresDate.replace(/T.*$/, '')
+                  : null}
               </li>
             </ul>
           </div>
@@ -72,14 +83,18 @@ const Results = props => {
             <h3 className="col__header">Technical Contact</h3>
             <ul>
               <li>
-                <span className="bold">Organization:</span>{' '}
-                {technicalContact.organization}
+                <span className="bold">Organization:</span>
+                {technicalContact.organization
+                  ? technicalContact.organization
+                  : null}
               </li>
               <li>
-                <span className="bold">Contact:</span> {technicalContact.name}
+                <span className="bold">Contact:</span>{' '}
+                {technicalContact.name ? technicalContact.name : null}
               </li>
               <li>
-                <span className="bold">Email:</span> {technicalContact.email}
+                <span className="bold">Email:</span>{' '}
+                {technicalContact.email ? technicalContact.email : null}
               </li>
             </ul>
           </div>
