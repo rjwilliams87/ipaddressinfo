@@ -42,6 +42,7 @@ class SearchBox extends React.Component {
             <input
               className="search-form__input"
               type="text"
+              name="userInput"
               placeholder="domain or ip here"
               value={userInput}
               onChange={this.handleInputChange}

@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import SearchBox from './SearchBox';
 
-describe('<App />', () => {
+describe('<SearchBox />', () => {
   it('renders without crashing', () => {
-    shallow(<App />);
+    shallow(<SearchBox />);
   });
 });
