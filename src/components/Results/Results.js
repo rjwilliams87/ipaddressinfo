@@ -55,10 +55,10 @@ const Results = props => {
             <h3 className="col__header">Registry Data</h3>
             <ul>
               <li>
-                <span className="bold">Registrar:</span> {registrarName}
+                <span className="bold">Registrar:</span> {registrarName || null}
               </li>
               <li>
-                <span className="bold">Created:</span>
+                <span className="bold">Created:</span>{' '}
                 {registryData.createdDate
                   ? registryData.createdDate.replace(/T.*$/, '')
                   : null}
@@ -71,7 +71,7 @@ const Results = props => {
               </li>
               <li>
                 <span className="bold">Expires:</span>{' '}
-                {registryData.expiresData
+                {registryData.expiresDate
                   ? registryData.expiresDate.replace(/T.*$/, '')
                   : null}
               </li>
@@ -83,7 +83,7 @@ const Results = props => {
             <h3 className="col__header">Technical Contact</h3>
             <ul>
               <li>
-                <span className="bold">Organization:</span>
+                <span className="bold">Organization:</span>{' '}
                 {technicalContact.organization
                   ? technicalContact.organization
                   : null}

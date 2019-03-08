@@ -3,7 +3,7 @@ import './SearchBox.css';
 
 class SearchBox extends React.Component {
   state = {
-    userInput: null
+    userInput: ''
   };
 
   handleInputChange = event => {
@@ -12,19 +12,30 @@ class SearchBox extends React.Component {
     });
   };
 
+  // TODO: clear input value after submit
+
   handleSubmit = event => {
     event.preventDefault();
-    this.props.handleUserSubmit(this.state.userInput);
+    const { handleUserSubmit } = this.props;
+    const { userInput } = this.state;
+    if (userInput === '') {
+      this.setState({
+        error: 'please enter valid IP or domain name'
+      });
+    } else {
+      handleUserSubmit(userInput);
+      this.setState({ error: null });
+    }
   };
 
   render() {
-    const { userInput } = this.state;
+    const { userInput, error } = this.state;
     return (
       <div>
         <form className="search-form" onSubmit={this.handleSubmit}>
           <div className="search-form__top">
             <legend className="search-form__legend">
-              Enter IP Address or Domain Name
+              {error || 'enter IP address or domain name'}
             </legend>
           </div>
           <div className="flex-column">
