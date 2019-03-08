@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import App from './App';
-import SearchBox from '../SearchBox/SearchBox';
 import fetchIpData from '../../utils/api';
 
 jest.mock('../../utils/api', data => jest.fn(() => Promise.resolve(data)));
