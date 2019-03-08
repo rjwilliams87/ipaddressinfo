@@ -11,7 +11,7 @@ class App extends React.Component {
   handleUserSubmit = userInput => {
     return fetchIpData(userInput)
       .then(data => this.setState({ data }))
-      .catch();
+      .catch(err => console.log(err)); // for dev TODO: setState({err}) && create err msg
   };
 
   render() {
