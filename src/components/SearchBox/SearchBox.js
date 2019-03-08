@@ -6,12 +6,15 @@ class SearchBox extends React.Component {
     userInput: ''
   };
 
+  // sets state to whatever user inputs
   handleInputChange = event => {
     this.setState({
       userInput: event.target.value
     });
   };
 
+  // if nothing is input display error message
+  // else run this.props.handleUserSubmit
   handleSubmit = event => {
     event.preventDefault();
     const { handleUserSubmit } = this.props;
