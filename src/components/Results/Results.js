@@ -34,7 +34,7 @@ const Results = props => {
       <h2 className="results__header">
         showing results for {registryData.domainName}
       </h2>
-      <div className="flex-container--row">
+      <div className="flex-container">
         {registrant ? (
           <div className="col">
             <h3 className="col__header">Registrant Info</h3>

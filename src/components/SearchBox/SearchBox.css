@@ -1,6 +1,7 @@
 .search-form {
   background: #394264;
   width: 50%;
+  min-width: 285px;
   height: 200px;
   margin: 0 auto;
   margin-top: 30px;
@@ -49,4 +50,11 @@
   cursor: pointer;
   background-color: #14bdc0;
   transition: 0.3s;
+}
+
+@media only screen and (max-width: 568px) {
+  .search-form__legend {
+    font-size: 1em;
+    padding: 5px;
+  }
 }
