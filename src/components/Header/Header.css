@@ -2,6 +2,25 @@
   width: 90%;
   margin: 0 auto;
   padding: 15px;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
+}
+
+.header__h1 {
+  text-align: center;
+}
+
+.header__btn {
+  float: right;
+  border: none;
+  font-size: 1.2em;
+  color: #fff;
+  background: #1f253d;
+  position: relative;
+  bottom: 40px;
+}
+
+.header__btn:focus,
+.header__btn:hover {
+  cursor: pointer;
 }

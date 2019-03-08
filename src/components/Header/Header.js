@@ -1,16 +1,16 @@
 import React from 'react';
 import './Header.css';
 
-// TODO: turn h2s into <Link> / <button>
-// what? will go to how to page
-// clear will be passed func that clears App's state
+// TODO: create <Link> that will go to a how to page
 
-const Header = () => {
+const Header = props => {
+  const { refresh } = props;
   return (
     <header className="header">
-      <h2>What?</h2>
-      <h1>ipaddressinfo.com</h1>
-      <h2>clear</h2>
+      <h1 className="header__h1">ipaddressinfo.com</h1>
+      <button type="button" className="header__btn" onClick={refresh}>
+        clear
+      </button>
     </header>
   );
 };

@@ -14,12 +14,16 @@ class App extends React.Component {
       .catch(err => console.log(err)); // for dev TODO: setState({err}) && create err msg
   };
 
+  clearResults = () => {
+    this.setState({ data: undefined });
+  };
+
   render() {
     const { data } = this.state;
     return (
       <div className="App">
         <div className="container">
-          <Header />
+          <Header refresh={this.clearResults} />
           <SearchBox handleUserSubmit={this.handleUserSubmit} />
           <Results data={data} />
         </div>
