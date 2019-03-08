@@ -12,8 +12,6 @@ class SearchBox extends React.Component {
     });
   };
 
-  // TODO: clear input value after submit
-
   handleSubmit = event => {
     event.preventDefault();
     const { handleUserSubmit } = this.props;
@@ -24,7 +22,7 @@ class SearchBox extends React.Component {
       });
     } else {
       handleUserSubmit(userInput);
-      this.setState({ error: null });
+      this.setState({ error: null, userInput: '' });
     }
   };
 

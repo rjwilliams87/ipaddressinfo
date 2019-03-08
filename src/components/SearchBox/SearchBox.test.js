@@ -42,6 +42,18 @@ describe('<SearchBox />', () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
+  it('should reset to original state on successful submit', () => {
+    const userInput = 'bizz';
+    const wrapper = shallow(<SearchBox handleUserSubmit={spy} />);
+    wrapper.find('input').simulate('change', {
+      target: { value: userInput }
+    });
+    wrapper.find('form').simulate('submit', {
+      preventDefault: jest.fn()
+    });
+    expect(wrapper.state().userInput).toEqual('');
+  });
+
   it('sets error if user leaves text area blank', () => {
     const wrapper = shallow(<SearchBox handleUserSubmit={spy} />);
     wrapper.find('form').simulate('submit', {
