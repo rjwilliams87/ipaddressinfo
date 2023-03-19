@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 
-import { useAddressDispatch } from '@/context/address';
 import { useInput } from '@/hooks/useInput';
 
 /**
@@ -15,11 +14,13 @@ import { useInput } from '@/hooks/useInput';
 
 export default function Home() {
   const [input, setInput] = useInput('');
-  const dispatch = useAddressDispatch();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch({ type: 'SET_ADDRESS', payload: input });
+    fetch('/api/v1/enrichments')
+      .then((data) => data.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   };
 
   return (

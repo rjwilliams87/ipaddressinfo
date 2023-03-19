@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import { AddressContext } from '@/context/address';
+
 import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -18,5 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <AddressContext>
+      <Component {...pageProps} />
+    </AddressContext>
+  );
 }
