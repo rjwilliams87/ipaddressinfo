@@ -10,6 +10,10 @@ export default function Home() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    fetch('/api/v1/enrichments')
+      .then((data) => data.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -22,12 +26,7 @@ export default function Home() {
       </Head>
       <main>
         <form onSubmit={handleSubmit}>
-          <input
-            onChange={setInput}
-            type="text"
-            placeholder="Enter domain or ip address"
-            // ref={ref}
-          />
+          <input onChange={setInput} type="text" placeholder="Enter domain or ip address" />
           <button type="submit">Submit</button>
         </form>
         {input}
