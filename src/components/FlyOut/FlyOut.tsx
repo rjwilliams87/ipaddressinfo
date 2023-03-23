@@ -44,6 +44,7 @@ const Input: React.FC<any> = (props) => {
   const { value, setValue, toggle } = React.useContext(FlyOutContext);
 
   const handleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     setValue(event.target.value);
   };
 
@@ -53,7 +54,7 @@ const Input: React.FC<any> = (props) => {
 const FlyOut: IFlyOutComponent = ({ children }) => {
   const [open, setOpen] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<string>('');
-  const toggle = React.useCallback(() => setOpen(!open), []);
+  const toggle = React.useCallback(() => setOpen(!open), [open]);
 
   return (
     <FlyOutContext.Provider value={{ open, toggle, value, setValue }}>
