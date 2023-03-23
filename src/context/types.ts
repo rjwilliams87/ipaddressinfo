@@ -1,4 +1,6 @@
+import type React from 'react';
+
 export interface IContextProps {
   displayName?: string;
-  children?: JSX.Element | JSX.Element[] | undefined | null;
+  children?: React.ReactNode | JSX.Element | JSX.Element[] | undefined | null;
 }
