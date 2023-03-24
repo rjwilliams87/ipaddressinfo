@@ -8,7 +8,11 @@ interface IFlyOutListProps extends IFlyOutBaseProps {
   value: string;
 }
 
-interface IFlyOutComponent extends React.FC<IFlyOutBaseProps> {
+interface IFlyOutCompnentProps extends IFlyOutBaseProps {
+  changeHandler: (value: string) => void;
+}
+
+interface IFlyOutComponent extends React.FC<IFlyOutCompnentProps> {
   List: React.FC<IFlyOutBaseProps>;
   ListItem: React.FC<IFlyOutListProps>;
   Input: React.FC<any>;
@@ -51,9 +55,16 @@ const Input: React.FC<any> = (props) => {
   return <input onFocus={toggle} onBlur={toggle} value={value} onChange={handleValue} {...props} />;
 };
 
-const FlyOut: IFlyOutComponent = ({ children }) => {
+const FlyOut: IFlyOutComponent = ({ children, changeHandler }) => {
   const [open, setOpen] = React.useState<boolean>(false);
-  const [value, setValue] = React.useState<string>('');
+  const [value, _setValue] = React.useState<string>('');
+  const setValue = React.useCallback(
+    (v: string) => {
+      _setValue(v);
+      changeHandler(v);
+    },
+    [changeHandler],
+  );
   const toggle = React.useCallback(() => setOpen(!open), [open]);
 
   return (
